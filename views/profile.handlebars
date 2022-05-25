@@ -6,23 +6,23 @@
 
 <div class="row mt-4">
   <div class="col-md-6">
-    <h3>Create a New Blog Post:</h3>
+    <h3>Write a new blog post:</h3>
 
     <form class="form new-blogPost-form">
       <div class="form-group">
-        <label for="blogPost-name">Blog Post name:</label>
+        <label for="blogPost-name">Your post's title:</label>
         <input class="form-input" type="text" id="blogPost-name" name="blogPost-name" />
       </div>
-      <div class="form-group">
+      {{!-- <div class="form-group">
         <label for="blogPost-funding">needed funding ($):</label>
         <input class="form-input" type="number" id="blogPost-funding" name="blogPost-funding" />
-      </div>
+      </div> --}}
       <div class="form-group">
-        <label for="blogPost-desc">description:</label>
+        <label for="blogPost-desc">Your post content:</label>
         <textarea class="form-input" id="blogPost-desc" name="blogPost-desc"></textarea>
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
+        <button type="submit" class="btn btn-primary">Publish</button>
       </div>
     </form>
   </div>

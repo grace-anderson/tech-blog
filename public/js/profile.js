@@ -2,17 +2,27 @@ const newFormHandler = async (event) => {
   event.preventDefault();
 
   const name = document.querySelector('#blogPost-name').value.trim();
-  const needed_funding = document.querySelector('#blogPost-funding').value.trim();
+  // const needed_funding = document.querySelector('#blogPost-funding').value.trim();
   const description = document.querySelector('#blogPost-desc').value.trim();
 
-  if (name && needed_funding && description) {
-    const response = await fetch(`/api/blogPosts`, {
-      method: 'POST',
-      body: JSON.stringify({ name, needed_funding, description }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+  // if (name && needed_funding && description) {
+  //   const response = await fetch(`/api/blogPosts`, {
+  //     method: 'POST',
+  //     body: JSON.stringify({ name, needed_funding, description }),
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //   });
+
+    if (name && description) {
+      const response = await fetch(`/api/blogPosts`, {
+        method: 'POST',
+        body: JSON.stringify({ name, description }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
 
     if (response.ok) {
       document.location.replace('/profile');
