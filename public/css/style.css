@@ -1,5 +1,5 @@
 header,
-.project:not(:last-child) {
+.blogPost:not(:last-child) {
   border-bottom: 1px solid #bfb8b9;
 }
 
@@ -37,6 +37,7 @@ a:hover {
   border: #bfb8b9 solid;
 }
 
+h3,
 .custom-p {
   font-weight: bold;
   color: #736968;
