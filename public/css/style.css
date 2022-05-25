@@ -1,5 +1,6 @@
-header, .project:not(:last-child) {
-  border-bottom: 1px solid #ccc;
+header,
+.project:not(:last-child) {
+  border-bottom: 1px solid #bfb8b9;
 }
 
 .no-button {
@@ -7,18 +8,42 @@ header, .project:not(:last-child) {
   border: none;
   padding: 0;
   cursor: pointer;
-  color: #1b89bc;
+  color: #f20505;
   text-decoration: none;
   font-size: 100%;
 }
 
 .no-button:hover {
-  color: #065b83;
+  color: #f20505;
   text-decoration: underline;
 }
 
-.dollar-amount {
+.custom-h2 {
+  color: #bf0404;
+}
+
+a,
+.custom-colour {
+  color: #730202;
+}
+
+a:hover {
+  color: #736968;
+}
+
+.post-border {
+  /* background-color: #f2f0f1; */
+  border-radius: 1rem;
+  border: #bfb8b9 solid;
+}
+
+.custom-p {
+  font-weight: bold;
+  color: #736968;
+}
+
+/* .dollar-amount {
   color: #056605;
   font-weight: bold;
   margin-left: -5px;
-}
+} */
