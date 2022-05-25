@@ -2,7 +2,6 @@ const newFormHandler = async (event) => {
   event.preventDefault();
 
   const name = document.querySelector('#blogPost-name').value.trim();
-  // const needed_funding = document.querySelector
   const description = document.querySelector('#blogPost-desc').value.trim();
 
     if (name && description) {
