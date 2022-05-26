@@ -1,8 +1,48 @@
-<div class="text-left col-md-8 post-border p-5">
-  <h2 class="custom-h2 mb-3">{{name}}</h2>
+<div class='text-left col-md-8 post-border p-5'>
+  <h2 class='custom-h2 mb-3'>{{name}}</h2>
   <p>{{description}}</p>
-  <p class="mb-5 custom-p">Posted by {{user.name}} on {{format_date date_created}}</p>
-  <p>
-    <button class="btn btn-primary custom-button-primary">Add a comment</button>
-  </p>
+  <p class='mb-5 custom-p'>
+    Posted by
+    {{user.name}}
+    on
+    {{format_date date_created}}
+    </p>
+    {{!-- <div>
+      //show count of comments
+        <a href="/post/{{id}}">{{comments.length}} {{"comments" comments.length}}</a>
+    </div> --}}
+  {{!-- <div>
+    //show list of comments
+    {{> comments post.comments}}
+  </div> --}}
+
+
+{{!-- Comment form and button --}}
+  {{#if logged_in}}
+  <form class="comment-form">
+    <div>
+        <textarea name="comment-text"></textarea>
+    </div>
+    <div>
+      <button type="submit" class='btn btn-primary custom-button-primary'>Add a comment</button>
+    </form>
+    </div>
+  {{/if}} 
+
+  <div>
+    <ul>
+      <li>when a user is logged AND is viewing an individual post they can add a comment on
+      that post</li>
+      <li>WHEN I enter a comment and click on the submit button while signed in
+      THEN the comment is saved and the post is updated to display the comment,
+      the comment creators name and the date comment is created</li>
+      <li>A user can update or delete their own comments</li>
+      <li>when a user is not logged in they can view a post and its comments but they cannot add/update/delete a comment</li>
+      <li>when a user is viewing the tech blog home page, they can see a total number of comments for each blog post</li>
+    </ul>
+  </div>
 </div>
+
+{{#if loggedIn}}
+<script src="/public/js/comment.js"></script>
+{{/if}}
