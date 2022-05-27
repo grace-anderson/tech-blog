@@ -10,8 +10,24 @@
 
 {{!-- //show list of comments --}}
 A list of comments should show here, above the textbox ...
-{{> comment}}
- 
+{{!-- {{> comment}} --}}
+{{!-- trying the whole thing not the partial--}}
+<section>
+{{#each comments as |comment|}}
+<div class='card-body'>
+  <p>
+    {{comment.comment_text}}
+  </p>
+  <p>
+    Comment by:
+    {{user.name}}
+    on
+    {{format_date comment.date_created}}
+  </p>
+</div>
+{{/each}}
+</section>
+
 {{!-- Comment form and button --}}
   {{#if logged_in}}
   <form class="comment-form">
