@@ -6,28 +6,25 @@
     {{user.name}}
     on
     {{format_date date_created}}
-    </p>
-    {{!-- <div>
-      //show count of comments
-        <a href="/post/{{id}}">{{comments.length}} {{"comments" comments.length}}</a>
-    </div> --}}
-  {{!-- <div>
-    //show list of comments
-    {{> comments post.comments}}
-  </div> --}}
+  </p>
 
-
+{{!-- //show list of comments --}}
+A list of comments should show here, above the textbox ...
+{{> comment}}
+ 
 {{!-- Comment form and button --}}
   {{#if logged_in}}
   <form class="comment-form">
     <div>
-        <textarea name="comment-text"></textarea>
+        <textarea class="mb-5 p-1" name="comment-text"></textarea>
     </div>
     <div>
       <button type="submit" class='btn btn-primary custom-button-primary'>Add a comment</button>
     </form>
     </div>
   {{/if}} 
+
+  {{!-- console.log('comment-text', comment-text) --}}
 
   <div>
     <ul>
@@ -39,10 +36,11 @@
       <li>A user can update or delete their own comments</li>
       <li>when a user is not logged in they can view a post and its comments but they cannot add/update/delete a comment</li>
       <li>when a user is viewing the tech blog home page, they can see a total number of comments for each blog post</li>
+      <li>when the user is viewing an individual blog post, all that post's comments are listed with the users name and date that they wrote the comment</li>
     </ul>
   </div>
 </div>
 
-{{#if loggedIn}}
+{{#if logged_in}}
 <script src="/public/js/comment.js"></script>
 {{/if}}
