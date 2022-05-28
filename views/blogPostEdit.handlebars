@@ -2,8 +2,9 @@
 
   <form action='/blogs/{{blogPost.id}}/edit' method='post'>
 
-    <input name='title' type='text' value='{{blogPost.name}}' />
-    <textarea name='description'>{{blogPost.description}}</textarea>
+    {{!-- <input name='title' type='text' value='{{blogPost.name}}' /> --}}
+     <textarea name='name'>{{blogPost.name}}</textarea>
+    <textarea class="white-space-wrap" name='description'>{{blogPost.description}}</textarea>
     <button type='submit'>Submit</button>
 
   </form>
