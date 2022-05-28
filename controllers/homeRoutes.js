@@ -40,7 +40,6 @@ router.get('/blogPost/:id', async (req, res) => {
           include: [
             {
               model: User,
-
             }
           ]
         }
@@ -130,8 +129,6 @@ router.get('/blogs/:id/edit', withAuth, async (req, res)=> {
 
 router.post('/blogs/:id/edit', withAuth, async (req, res) => {
 
-  console.log("HEEEREEE is edited blog post", req.body);
-
   try {
     await BlogPost.update(req.body,
       {
@@ -144,5 +141,16 @@ router.post('/blogs/:id/edit', withAuth, async (req, res) => {
     res.status(400).json(err);
   }
 })
+//end edit blog post
+
+//edit comment
+router.get('/comments/:id/edit', withAuth, async (req, res)=> {
+  const comment = await (await Comment.findByPk(req.params.id)).get({plain:true})
+  res.render('commentEdit', {
+    comment,
+    logged_in:  req.session.logged_in
+  })
+});
+
 
 module.exports = router;

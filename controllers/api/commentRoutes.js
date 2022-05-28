@@ -1,33 +1,18 @@
 const router = require('express').Router();
-const { Comment } = require('../../models');
+const { Comment, BlogPost } = require('../../models');
 const withAuth = require('../../utils/auth');
-
-// router.get('/blogPost/:id', async (req, res) => {
-//   try {
-//     // Get all comment data and join with user name
-//     const commentData = await Comment.findAll({
-//       include: [
-//         {
-//           model: User,
-//           attributes: ['name'],
-//         },
-//       ],
-//     });
-
-//     // Serialize comment so the template can read it
-//     const comments = commentData.map((comment) => comment.get({ plain: true }));
-//   } 
-//   catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
 
 router.post('/', withAuth, async (req, res) => {
   try {
     // console.log('req.body', req.body)
-    const {post_id, comment_text} = req.body
-    const user_id = req.session.user_id
-    console.log('user_id, post_id, comment_text', user_id, post_id, comment_text)
+    const { post_id, comment_text } = req.body;
+    const user_id = req.session.user_id;
+    console.log(
+      'user_id, post_id, comment_text',
+      user_id,
+      post_id,
+      comment_text
+    );
     const newComment = await Comment.create({
       // ...req.body,
       user_id,
@@ -41,6 +26,23 @@ router.post('/', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+// Update edited comment
+router.put('/:id', withAuth, async (req, res) => {
+
+  try {
+    const updatedComment = await Comment.update(req.body,
+      {
+      where: {
+        id: req.params.id, 
+      },
+    });
+    res.status(200).json(updatedComment);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
+
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {

@@ -1,0 +1,16 @@
+<div class='text-left col-md-8 post-border p-5'>
+
+  <form action='/comment/{{comment.id}}/edit' method='post'>
+
+    <textarea name='description'>{{comment.comment_text}}</textarea>
+    <button type='submit'>Submit</button>
+
+  </form>
+  <p class='mb-5 custom-p'>
+    Posted by
+    {{comment.user.name}}
+    on
+    {{format_date comment.date_created}}
+  </p>
+
+</div>
