@@ -118,7 +118,7 @@ router.get('/blogs/:blog_id/comments/delete/:comment_id', withAuth, async (req, 
 
 });
 
-
+//edit blog post 
 router.get('/blogs/:id/edit', withAuth, async (req, res)=> {
   const blogPost = await (await BlogPost.findByPk(req.params.id)).get({plain:true})
   res.render('blogPostEdit', {
@@ -127,13 +127,22 @@ router.get('/blogs/:id/edit', withAuth, async (req, res)=> {
   })
 });
 
+
 router.post('/blogs/:id/edit', withAuth, async (req, res) => {
 
-  console.log(req.body);
-  // BlogPost.update({
-    
-  // })
-  res.redirect('/blogPost/' + req.params.id);
+  console.log("HEEEREEE is edited blog post", req.body);
+
+  try {
+    await BlogPost.update(req.body,
+      {
+      where: {
+        id: req.params.id, 
+      },
+    });
+    res.redirect('/blogPost/' + req.params.id)
+  } catch (err) {
+    res.status(400).json(err);
+  }
 })
 
 module.exports = router;

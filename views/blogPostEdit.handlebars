@@ -1,11 +1,11 @@
 <div class='text-left col-md-8 post-border p-5'>
 
-  <form action="/blogs/{{blogPost.id}}/edit" method="post">
-  
-    <input name="title" type="text" value="{{blogPost.name}}">
-    <textarea name="description" >{{blogPost.description}}</textarea>
-    <button type="submit">Submit</button>
-  
+  <form action='/blogs/{{blogPost.id}}/edit' method='post'>
+
+    <input name='title' type='text' value='{{blogPost.name}}' />
+    <textarea name='description'>{{blogPost.description}}</textarea>
+    <button type='submit'>Submit</button>
+
   </form>
   <p class='mb-5 custom-p'>
     Posted by
@@ -14,5 +14,4 @@
     {{format_date blogPost.date_created}}
   </p>
 
-  </div> 
-
+</div>
