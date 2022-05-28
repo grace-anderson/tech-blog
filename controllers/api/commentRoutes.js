@@ -29,6 +29,7 @@ router.post('/', withAuth, async (req, res) => {
 
 ///edit comment
 router.post('id', withAuth, async (req, res) => {
+  
   console.log('Edited comment is HEREEEE', req.body);
 
   try {
@@ -37,7 +38,8 @@ router.post('id', withAuth, async (req, res) => {
         id: req.params.id,
       },
     });
-    res.redirect('/comments/' + req.params.id);
+    // res.redirect('/comments/' + req.params.id);
+    res.redirect('/blogPost/' + req.params.id)
   } catch (err) {
     res.status(400).json(err);
   }

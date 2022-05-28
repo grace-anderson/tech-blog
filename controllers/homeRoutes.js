@@ -15,12 +15,14 @@ router.get('/', async (req, res) => {
     });
 
     // Serialize data so the template can read it
-    const blogPosts = blogPostData.map((blogPost) => blogPost.get({ plain: true }));
+    const blogPosts = blogPostData.map((blogPost) =>
+      blogPost.get({ plain: true })
+    );
 
     // Pass serialized data and session flag into template
-    res.render('homepage', { 
-      blogPosts, 
-      logged_in: req.session.logged_in 
+    res.render('homepage', {
+      blogPosts,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -40,21 +42,18 @@ router.get('/blogPost/:id', async (req, res) => {
           include: [
             {
               model: User,
-
-            }
-          ]
-        }
+            },
+          ],
+        },
       ],
     });
-    
 
     const blogPost = blogPostData.get({ plain: true });
     console.log(blogPost);
 
-
     res.render('blogPost', {
-      blogPost: blogPost, 
-      logged_in: req.session.logged_in
+      blogPost: blogPost,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -74,7 +73,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 
     res.render('dashboard', {
       ...user,
-      logged_in: true
+      logged_in: true,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -91,66 +90,67 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+router.get(
+  '/blogs/:blog_id/comments/delete/:comment_id',
+  withAuth,
+  async (req, res) => {
+    try {
+      const commentData = await Comment.destroy({
+        where: {
+          id: req.params.comment_id,
+          user_id: req.session.user_id,
+        },
+      });
 
-router.get('/blogs/:blog_id/comments/delete/:comment_id', withAuth, async (req, res) => {
+      if (!commentData) {
+        // TODO: flash a message to the user
+        res.redirect(`/blogPost/${req.params.blog_id}`);
+        return;
+      }
 
-  try {
-    const commentData = await Comment.destroy({
-      where: {
-        id: req.params.comment_id,
-        user_id: req.session.user_id,
-      },
-    });
-
-    if (!commentData) {
-      // TODO: flash a message to the user
-      res.redirect(`/blogPost/${req.params.blog_id}`)
-      return;
-    }
-
-    res.redirect(`/blogPost/${req.params.blog_id}`)
-
-  } catch (err) {
+      res.redirect(`/blogPost/${req.params.blog_id}`);
+    } catch (err) {
       // TODO: flash an error message to the user
-    res.redirect(`/blogPost/${req.params.blog_id}`)
-
+      res.redirect(`/blogPost/${req.params.blog_id}`);
+    }
   }
+);
 
-});
-
-//edit blog post 
-router.get('/blogs/:id/edit', withAuth, async (req, res)=> {
-  const blogPost = await (await BlogPost.findByPk(req.params.id)).get({plain:true})
+//edit blog post
+router.get('/blogs/:id/edit', withAuth, async (req, res) => {
+  const blogPost = await (
+    await BlogPost.findByPk(req.params.id)
+  ).get({ plain: true });
   res.render('blogPostEdit', {
     blogPost,
-    logged_in:  req.session.logged_in
-  })
+    logged_in: req.session.logged_in,
+  });
 });
 
 router.post('/blogs/:id/', withAuth, async (req, res) => {
-
-  console.log("HEEEREEE is edited blog post", req.body);
+  console.log('HEEEREEE is edited blog post', req.body);
 
   try {
-    await BlogPost.update(req.body,
-      {
+    await BlogPost.update(req.body, {
       where: {
-        id: req.params.id, 
+        id: req.params.id,
       },
     });
-    res.redirect('/blogPost/' + req.params.id)
+    res.redirect('/blogPost/' + req.params.id);
   } catch (err) {
     res.status(400).json(err);
   }
-})
+});
 
 //edit comment
-router.get('/comments/edit/:id', withAuth, async (req, res)=> {
-  const comment = await (await Comment.findByPk(req.params.id)).get({plain:true})
+router.get('/comments/edit/:id', withAuth, async (req, res) => {
+  const comment = await (
+    await Comment.findByPk(req.params.id)
+  ).get({ plain: true });
   res.render('commentEdit', {
     comment,
-    logged_in: req.session.logged_in
-  })
+    logged_in: req.session.logged_in,
+  });
 });
 
 module.exports = router;

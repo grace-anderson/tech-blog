@@ -26,8 +26,8 @@
       {{format_date comment.date_created}}
     </p>
   </div>
-  <div><a href="/comments/edit/{{ comment.id }}">Edit Comment</a>
-  </div>
+  {{!-- <div><a href="/comments/edit/{{ comment.id }}">Edit Comment</a>
+  </div> --}}
   <div>
     <a href="/blogs/{{ ../blogPost.id }}/comments/delete/{{ comment.id }}">Delete Comment</a>
   </div>
@@ -42,6 +42,15 @@
     </div>
     <div>
       <button type="submit" class='btn btn-primary custom-button-primary'>Add a comment</button>
+    </form>
+    </div>
+  {{/if}} 
+
+{{#if logged_in}}
+  <form class="edit-comment">
+    <textarea name='description'>{{comment.comment_text}}</textarea>
+    <div>
+      <button type="submit" class='btn btn-primary custom-button-primary'>Edit a comment</button>
     </form>
     </div>
   {{/if}} 
