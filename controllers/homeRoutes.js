@@ -152,5 +152,20 @@ router.get('/comments/:id/edit', withAuth, async (req, res)=> {
   })
 });
 
+router.post('comments/:id', withAuth, async (req, res) => {
+
+  try {
+    await Comment.update(req.body,
+      {
+      where: {
+        id: req.params.id, 
+      },
+    });
+    res.redirect('/comment/' + req.params.id)
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
+// end edit comment
 
 module.exports = router;

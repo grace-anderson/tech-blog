@@ -27,22 +27,6 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-// Update edited comment
-router.put('/:id', withAuth, async (req, res) => {
-
-  try {
-    const updatedComment = await Comment.update(req.body,
-      {
-      where: {
-        id: req.params.id, 
-      },
-    });
-    res.status(200).json(updatedComment);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-})
-
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {
