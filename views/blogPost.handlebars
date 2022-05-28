@@ -1,29 +1,34 @@
 <div class='text-left col-md-8 post-border p-5'>
-  <h2 class='custom-h2 mb-3'>{{name}}</h2>
-  <p>{{description}}</p>
+  <h2 class='custom-h2 mb-3'>{{blogPost.name}}</h2>
+  <a href="/blogs/{{blogPost.id}}/edit">Edit</a>
+  <p>{{blogPost.description}}</p>
   <p class='mb-5 custom-p'>
     Posted by
-    {{user.name}}
+    {{blogPost.user.name}}
     on
-    {{format_date date_created}}
+    {{format_date blogPost.date_created}}
   </p>
 
 {{!-- //show list of comments --}}
-{{!-- {{> comment}} --}}
-{{!-- trying the whole thing not the partial--}}
+{{!--move to partial -> {{> comment}} --}}
 <section>
-{{#each comments as |comment|}}
-<div class='card-body'>
-  <p>
-    {{comment.comment_text}}
-  </p>
-  <p>
-    Comment by:
-    {{user.name}}
-    on
-    {{format_date comment.date_created}}
-  </p>
-</div>
+{{#each blogPost.comments as |comment|}}
+  <div class='card-body'>
+    <p>
+      {{comment.comment_text}}
+    </p>
+    <p>
+      Comment by:
+      {{#with user}}
+      {{{name}}}
+      {{/with}}
+      on
+      {{format_date comment.date_created}}
+    </p>
+  </div>
+  <div>
+    <a href="/blogs/{{ ../blogPost.id }}/comments/delete/{{ comment.id }}">Delete</a>
+  </div>
 {{/each}}
 </section>
 
@@ -43,15 +48,9 @@
 
   <div>
     <ul>
-      <li>when a user is logged AND is viewing an individual post they can add a comment on
-      that post</li>
-      <li>WHEN I enter a comment and click on the submit button while signed in
-      THEN the comment is saved and the post is updated to display the comment,
-      the comment creators name and the date comment is created</li>
-      <li>A user can update or delete their own comments</li>
-      <li>when a user is not logged in they can view a post and its comments but they cannot add/update/delete a comment</li>
-      <li>when a user is viewing the tech blog home page, they can see a total number of comments for each blog post</li>
-      <li>when the user is viewing an individual blog post, all that post's comments are listed with the users name and date that they wrote the comment</li>
+      <li>ISSUE - name not showing on comment</li>
+      <li>TO DO - user who created comment, can edit or delete comment</li>
+      <li>TO DO - user who created post can edit post</li>
     </ul>
   </div>
 </div>

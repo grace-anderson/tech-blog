@@ -36,17 +36,24 @@ router.get('/blogPost/:id', async (req, res) => {
           attributes: ['name'],
         },
         {
-          model: Comment
+          model: Comment,
+          include: [
+            {
+              model: User,
+
+            }
+          ]
         }
       ],
     });
+    
 
     const blogPost = blogPostData.get({ plain: true });
-    // console.log(blogPost);
+    console.log(blogPost);
 
 
     res.render('blogPost', {
-      ...blogPost,
+      blogPost: blogPost, 
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -83,5 +90,50 @@ router.get('/login', (req, res) => {
 
   res.render('login');
 });
+
+
+router.get('/blogs/:blog_id/comments/delete/:comment_id', withAuth, async (req, res) => {
+
+  try {
+    const commentData = await Comment.destroy({
+      where: {
+        id: req.params.comment_id,
+        user_id: req.session.user_id,
+      },
+    });
+
+    if (!commentData) {
+      // TODO: flash a message to the user
+      res.redirect(`/blogPost/${req.params.blog_id}`)
+      return;
+    }
+
+    res.redirect(`/blogPost/${req.params.blog_id}`)
+
+  } catch (err) {
+      // TODO: flash an error message to the user
+    res.redirect(`/blogPost/${req.params.blog_id}`)
+
+  }
+
+});
+
+
+router.get('/blogs/:id/edit', withAuth, async (req, res)=> {
+  const blogPost = await (await BlogPost.findByPk(req.params.id)).get({plain:true})
+  res.render('blogPostEdit', {
+    blogPost,
+    logged_in:  req.session.logged_in
+  })
+});
+
+router.post('/blogs/:id/edit', withAuth, async (req, res) => {
+
+  console.log(req.body);
+  // BlogPost.update({
+    
+  // })
+  res.redirect('/blogPost/' + req.params.id);
+})
 
 module.exports = router;
