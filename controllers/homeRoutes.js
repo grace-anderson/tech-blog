@@ -127,7 +127,6 @@ router.get('/blogs/:id/edit', withAuth, async (req, res)=> {
   })
 });
 
-
 router.post('/blogs/:id/edit', withAuth, async (req, res) => {
 
   console.log("HEEEREEE is edited blog post", req.body);
@@ -144,5 +143,6 @@ router.post('/blogs/:id/edit', withAuth, async (req, res) => {
     res.status(400).json(err);
   }
 })
+
 
 module.exports = router;

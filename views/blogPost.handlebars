@@ -26,8 +26,10 @@
       {{format_date comment.date_created}}
     </p>
   </div>
+  <div><a href="/blogs/{{../blogPost.id}}/comments/edit/{{ comment.id }}">Edit Comment</a>
+  </div>
   <div>
-    <a href="/blogs/{{ ../blogPost.id }}/comments/delete/{{ comment.id }}">Delete</a>
+    <a href="/blogs/{{ ../blogPost.id }}/comments/delete/{{ comment.id }}">Delete Comment</a>
   </div>
 {{/each}}
 </section>
@@ -48,8 +50,8 @@
 
   <div>
     <ul>
-      <li>TO DO - user who created comment, can edit or delete comment</li>
-      <li>TO DO - user who created post can edit post</li>
+      <li>TO DO - user who created comment can edit comment</li>
+      <li>TO DO - why is blogPost.description text not displaying in paragraphs</li>
     </ul>
   </div>
 </div>

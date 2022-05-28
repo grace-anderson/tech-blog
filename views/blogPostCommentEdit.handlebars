@@ -1,0 +1,19 @@
+<div class='text-left col-md-8 post-border p-5'>
+
+  <form action='/blogs/{{../blogPost.id}}/comments/edit/{{ comment.id }}' method='post'>
+
+    <input name="comment-text" type='text' value='{{comment.comment_text}}' />
+    <textarea name="comment-text">{{comment.comment_text}}</textarea>
+    <button type='submit'>Submit</button>
+
+  </form>
+  <p class='mb-5 custom-p'>
+    Comment updated by
+    {{#with user}}
+      {{{name}}}
+      {{/with}}
+    on
+      {{format_date comment.date_created}}
+  </p>
+
+</div>
