@@ -68,12 +68,22 @@ input {
 textarea:focus,
 input:focus {
   outline: none;
-  border: 1px solid #736968;
+  border: 1px solid #bf0404;
 }
 
 textarea {
   min-width: 50%;
   min-height: 100px;
+}
+
+.textarea-small {
+  min-width: 50%;
+  min-height: 1rem;
+}
+
+.textarea-margin {
+  margin-left: 0;
+  margin-bottom: 1rem;
 }
 
 .white-space-wrap {

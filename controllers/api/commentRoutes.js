@@ -4,7 +4,6 @@ const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
   try {
-    // console.log('req.body', req.body)
     const { post_id, comment_text } = req.body;
     const user_id = req.session.user_id;
     console.log(
@@ -27,7 +26,23 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+//updated comment
+router.post('/:id', withAuth, async (req, res) => {
 
+  try {
+    await Comment.update(req.body,
+      {
+      where: {
+        id: req.params.id, 
+      },
+    });
+    res.redirect('/comment/' + req.params.id)
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
+
+//delete comment
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const commentData = await Comment.destroy({

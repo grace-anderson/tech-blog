@@ -126,7 +126,6 @@ router.get('/blogs/:id/edit', withAuth, async (req, res)=> {
   })
 });
 
-
 router.post('/blogs/:id/edit', withAuth, async (req, res) => {
 
   try {
@@ -152,20 +151,20 @@ router.get('/comments/:id/edit', withAuth, async (req, res)=> {
   })
 });
 
-router.post('/comment/:id/edit', withAuth, async (req, res) => {
+// router.post('/comment/:id/edit', withAuth, async (req, res) => {
 
-  try {
-    await Comment.update(req.body,
-      {
-      where: {
-        id: req.params.id, 
-      },
-    });
-    res.redirect('/comment/' + req.params.id)
-  } catch (err) {
-    res.status(500).json(err);
-  }
-})
+//   try {
+//     await Comment.update(req.body,
+//       {
+//       where: {
+//         id: req.params.id, 
+//       },
+//     });
+//     res.redirect('/comment/' + req.params.id)
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// })
 // end edit comment
 
 module.exports = router;
