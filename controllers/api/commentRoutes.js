@@ -5,9 +5,14 @@ const withAuth = require('../../utils/auth');
 router.post('/', withAuth, async (req, res) => {
   try {
     // console.log('req.body', req.body)
-    const {post_id, comment_text} = req.body
-    const user_id = req.session.user_id
-    console.log('user_id, post_id, comment_text', user_id, post_id, comment_text)
+    const { post_id, comment_text } = req.body;
+    const user_id = req.session.user_id;
+    console.log(
+      'user_id, post_id, comment_text',
+      user_id,
+      post_id,
+      comment_text
+    );
     const newComment = await Comment.create({
       // ...req.body,
       user_id,
@@ -23,30 +28,20 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 ///edit comment
-router.get('./comments/edit/:id.', withAuth, async (req, res)=> {
-  const comment = await (await Comment.findByPk(req.params.id)).get({plain:true})
-  res.render('commentEdit', {
-    comment,
-    logged_in: req.session.logged_in
-  })
-});
-
-router.post('/blogs/blogPost:id/comments/:id', withAuth, async (req, res) => {
-
-  console.log("Edited comment is HEREEEE", req.body);
+router.post('id', withAuth, async (req, res) => {
+  console.log('Edited comment is HEREEEE', req.body);
 
   try {
-    await Comment.update(req.body,
-      {
+    await Comment.update(req.body, {
       where: {
-        id: req.params.id, 
+        id: req.params.id,
       },
     });
-    res.redirect('/blogPost/comments/' + req.params.id)
+    res.redirect('/comments/' + req.params.id);
   } catch (err) {
     res.status(400).json(err);
   }
-})
+});
 //end edit comment
 
 router.delete('/:id', withAuth, async (req, res) => {

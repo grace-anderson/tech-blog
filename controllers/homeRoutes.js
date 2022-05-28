@@ -127,7 +127,7 @@ router.get('/blogs/:id/edit', withAuth, async (req, res)=> {
   })
 });
 
-router.post('/blogs/:id/edit', withAuth, async (req, res) => {
+router.post('/blogs/:id/', withAuth, async (req, res) => {
 
   console.log("HEEEREEE is edited blog post", req.body);
 
@@ -144,5 +144,13 @@ router.post('/blogs/:id/edit', withAuth, async (req, res) => {
   }
 })
 
+//edit comment
+router.get('/comments/edit/:id', withAuth, async (req, res)=> {
+  const comment = await (await Comment.findByPk(req.params.id)).get({plain:true})
+  res.render('commentEdit', {
+    comment,
+    logged_in: req.session.logged_in
+  })
+});
 
 module.exports = router;
