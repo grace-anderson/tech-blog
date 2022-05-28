@@ -1,7 +1,7 @@
 <div class='text-left col-md-8 post-border p-5'>
   <h2 class='custom-h2 mb-3'>{{blogPost.name}}</h2>
   <a href="/blogs/{{blogPost.id}}/edit">Edit</a>
-  <p>{{blogPost.description}}</p>
+  <p class="white-space-wrap">{{blogPost.description}}</p>
   <p class='mb-5 custom-p'>
     Posted by
     {{blogPost.user.name}}
@@ -13,7 +13,7 @@
 {{!--move to partial -> {{> comment}} --}}
 <section>
 {{#each blogPost.comments as |comment|}}
-  <div class='card-body'>
+  <div class='card-body custom-card-body'>
     <p>
       {{comment.comment_text}}
     </p>
@@ -25,12 +25,14 @@
       on
       {{format_date comment.date_created}}
     </p>
-  </div>
-  <div>
-    <a href="/comments/{{comment.id}}/edit">Edit Comment</a>
-  </div>
-  <div>
-    <a href="/blogs/{{ ../blogPost.id }}/comments/delete/{{ comment.id }}">Delete Comment</a>
+    <div class="display-flex justify-space-between align-center">
+      <div>
+        <a class="bold" href="/comments/{{comment.id}}/edit">Edit Comment</a>
+      </div>
+      <div>
+        <a class="bold" href="/blogs/{{ ../blogPost.id }}/comments/delete/{{ comment.id }}">Delete Comment</a>
+      </div>
+    </div>
   </div>
 {{/each}}
 </section>

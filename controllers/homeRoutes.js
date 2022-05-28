@@ -152,7 +152,7 @@ router.get('/comments/:id/edit', withAuth, async (req, res)=> {
   })
 });
 
-router.post('comments/:id', withAuth, async (req, res) => {
+router.post('/comment/:id/edit', withAuth, async (req, res) => {
 
   try {
     await Comment.update(req.body,

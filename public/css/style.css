@@ -27,12 +27,16 @@ a,
   color: #730202;
 }
 
+a,
+.bold {
+  font-weight: bolder;
+}
+
 a:hover {
   color: #736968;
 }
 
 .post-border {
-  /* background-color: #f2f0f1; */
   border-radius: 1rem;
   border: #bfb8b9 solid;
 }
@@ -47,24 +51,42 @@ h3,
   color: #736968;
 }
 
-textarea, input {
-  padding: .5%;
-  border-radius: 5px;
+.custom-card-body {
+  background-color: #f8f7f8;
+  border-radius: 1rem;
+  padding: 0.6rem;
+  margin: 0.4rem 0;
+}
+
+textarea,
+input {
+  padding: 1rem;
+  border-radius: 1rem;
   border: 1px solid #736968;
 }
 
-textarea:focus, input:focus {
+textarea:focus,
+input:focus {
   outline: none;
   border: 1px solid #736968;
 }
 
 textarea {
-  min-width: 40%;
+  min-width: 50%;
   min-height: 100px;
+}
+
+.white-space-wrap {
+  white-space: pre-wrap;
 }
 
 @media only screen and (max-width: 768px) {
   .custom-h1 {
     margin-left: 1rem;
+  }
+
+  textarea {
+    min-width: 80%;
+    min-height: 100px;
   }
 }
