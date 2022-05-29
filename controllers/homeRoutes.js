@@ -18,9 +18,9 @@ router.get('/', async (req, res) => {
     const blogPosts = blogPostData.map((blogPost) => blogPost.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('homepage', { 
-      blogPosts, 
-      logged_in: req.session.logged_in 
+    res.render('homepage', {
+      blogPosts,
+      logged_in: req.session.logged_in
     });
   } catch (err) {
     res.status(500).json(err);
@@ -45,14 +45,16 @@ router.get('/blogPost/:id', async (req, res) => {
         }
       ],
     });
-    
+
+    if(!blogPostData) {
+      res.status(404).send("Blog post not found");
+      return
+    }
 
     const blogPost = blogPostData.get({ plain: true });
-    console.log(blogPost);
-
 
     res.render('blogPost', {
-      blogPost: blogPost, 
+      blogPost: blogPost,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -81,7 +83,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
+//if user logged in, send to dashboard
   if (req.session.logged_in) {
     res.redirect('/dashboard');
     return;
@@ -103,27 +105,26 @@ router.get('/blogs/:blog_id/comments/delete/:comment_id', withAuth, async (req, 
 
     if (!commentData) {
       // TODO: flash a message to the user
-      res.redirect(`/blogPost/${req.params.blog_id}`)
+      res.redirect(`/blogPost/${req.params.blog_id}`);
       return;
     }
 
-    res.redirect(`/blogPost/${req.params.blog_id}`)
+    res.redirect(`/blogPost/${req.params.blog_id}`);
 
   } catch (err) {
-      // TODO: flash an error message to the user
-    res.redirect(`/blogPost/${req.params.blog_id}`)
-
+    // TODO: flash an error message to the user
+    res.redirect(`/blogPost/${req.params.blog_id}`);
   }
 
 });
 
-//edit blog post 
+//edit blog post
 router.get('/blogs/:id/edit', withAuth, async (req, res)=> {
-  const blogPost = await (await BlogPost.findByPk(req.params.id)).get({plain:true})
+  const blogPost = await (await BlogPost.findByPk(req.params.id)).get({plain:true});
   res.render('blogPostEdit', {
     blogPost,
     logged_in:  req.session.logged_in
-  })
+  });
 });
 
 router.post('/blogs/:id/edit', withAuth, async (req, res) => {
@@ -131,24 +132,24 @@ router.post('/blogs/:id/edit', withAuth, async (req, res) => {
   try {
     await BlogPost.update(req.body,
       {
-      where: {
-        id: req.params.id, 
-      },
-    });
-    res.redirect('/blogPost/' + req.params.id)
+        where: {
+          id: req.params.id,
+        },
+      });
+    res.redirect('/blogPost/' + req.params.id);
   } catch (err) {
     res.status(400).json(err);
   }
-})
+});
 //end edit blog post
 
 //edit comment
 router.get('/comments/:id/edit', withAuth, async (req, res)=> {
-  const comment = await (await Comment.findByPk(req.params.id)).get({plain:true})
+  const comment = await (await Comment.findByPk(req.params.id)).get({plain:true});
   res.render('commentEdit', {
     comment,
     logged_in:  req.session.logged_in
-  })
+  });
 });
 
 // router.post('/comment/:id/edit', withAuth, async (req, res) => {
@@ -157,7 +158,7 @@ router.get('/comments/:id/edit', withAuth, async (req, res)=> {
 //     await Comment.update(req.body,
 //       {
 //       where: {
-//         id: req.params.id, 
+//         id: req.params.id,
 //       },
 //     });
 //     res.redirect('/comment/' + req.params.id)
