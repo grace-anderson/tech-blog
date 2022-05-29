@@ -1,16 +1,21 @@
-<div class="container">
-    {{#each this.posts }}
-    <div class="row">
-        <div class="card col-12 col-sm-12 m-2 clickableBlogPost" data-id="{{ id }}">
-            <div class="card-header">
-                <span class="float-start"> {{ title }} </span>
-                <span class="float-end"> Posted by {{ user.username }} on {{ dateStringForPost }} </span>
-            </div>
-            <div class="card-body">
-                <p class="card-text">{{contents}}</p>
-            </div>
+<div class='container'>
+  {{#each this.posts}}
+    <div class='row'>
+      <div class='card col-12 col-sm-12 m-2 clickableBlogPost' data-id='{{id}}'>
+        <div class='card-header'>
+          <span class='float-start'> {{title}} </span>
+          <span class='float-end'>
+            Posted by
+            {{user.username}}
+            on
+            {{dateStringForPost}}
+          </span>
         </div>
+        <div class='card-body'>
+          <p class='card-text'>{{contents}}</p>
+        </div>
+      </div>
     </div>
-    {{/each}}
+  {{/each}}
 </div>
-<script src="/js/homePage.js"></script>
+<script src='/js/homePage.js'></script>

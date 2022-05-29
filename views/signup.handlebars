@@ -1,16 +1,63 @@
-<div class="form-signin text-center p-5">
-    <form id="signup-form">
-        <h1 class="h3 mb-3 fw-normal">Please enter sign up information</h1>
+<div class='form-signin p-5'>
+  <form id='signup-form'>
+    <h3 class='ms-3 mb-3'>Sign up to The Tech Blog</h3>
 
-        <div class="form-floating m-1">
-            <input type="text" class="form-control" id="username-signup" placeholder="Username">
-            <label for="floatingInput">Username</label>
-        </div>
-        <div class="form-floating m-1">
+    <div class='row m-1 align-items-center'>
+      <div class='col-auto'>
+        <label for='username' class='col-form-label'>Username</label>
+      </div>
+      <div class='col-auto'>
+        <input
+          type='text'
+          class='form-control'
+          id='username-signup'
+          aria-describedby='usernameHelpInline'
+        />
+      </div>
+      <div class='col-auto'>
+        <span id='passwordHelpInline' class='form-text'>
+          Your username will appear on your blog posts and comments
+        </span>
+      </div>
+    </div>
+
+    <div class='row m-1 align-items-center'>
+      <div class='col-auto'>
+        <label for='password' class='col-form-label'>Password</label>
+      </div>
+      <div class='col-auto ms-1'>
+        <input
+          type='password'
+          class='form-control'
+          id='password-signup'
+          aria-describedby='passwordHelpInline'
+        />
+      </div>
+      <div class='col-auto'>
+        <span id='passwordHelpInline' class='form-text'>
+          Must be minimum of 8-20 characters long.
+        </span>
+      </div>
+    </div>
+    {{! 
+    <div class='form-floating m-1'>
+      <input
+        type='text'
+        class='form-control'
+        id='username-signup'
+        placeholder='Username'
+      />
+      <label for='floatingInput'>Username</label>
+    </div> }}
+    {{! <div class="form-floating m-1">
             <input type="password" class="form-control" id="password-signup" placeholder="Password">
             <label for="floatingPassword">Password</label>
-        </div>
-        <button class="w-100 btn btn-lg btn-primary m-1" type="submit">Sign Up</button>
-    </form>
+        </div> }}
+    <div class='row m-1 align-items-center'>
+      <div class='col-4'>
+        <button class='btn btn-lg btn btn-dark mt-2' type='submit'>Sign Up</button>
+      </div>
+    </div>
+  </form>
 </div>
-<script src="/js/signup.js"></script>
+<script src='/js/signup.js'></script>
