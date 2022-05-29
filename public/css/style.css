@@ -18,10 +18,6 @@ header,
   text-decoration: underline;
 }
 
-.custom-h2 {
-  color: #bf0404;
-}
-
 a,
 .custom-colour {
   color: #730202;
@@ -43,6 +39,10 @@ a:hover {
 
 .custom-h1 {
   margin-left: 7.5rem;
+}
+
+.custom-h2 {
+  color: #bf0404;
 }
 
 h3,
