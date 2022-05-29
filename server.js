@@ -4,6 +4,7 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
+require('dotenv').config();
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -16,8 +17,7 @@ const hbs = exphbs.create({ helpers });
 
 const sess = {
   secret: process.env.SESSION_SECRET,
-  // secret: 'Super secret secret',
-  cookie: {},
+  cookie: {maxAge: 30 * 60 * 1000}, //30 minutes
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
