@@ -6,7 +6,7 @@ blogPosts.forEach(item => item.addEventListener("click", function (event) {
     if (event.currentTarget.classList.contains("card")) {
         // Get the ID of the clicked blog
         var clickedId = event.currentTarget.dataset.id;
-        // Go to the page for updating the blog
-        document.location.replace('/blog-update/' + clickedId);
+        // Go to the comments for the blog
+        document.location.replace('/blog-comments/' + clickedId);
     }
 }));

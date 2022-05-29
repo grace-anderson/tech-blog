@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row">
+        <form id="blog-update-form">
+            <h1 class="h3 mb-3 fw-normal">Edit Post</h1>
+            <div class="form-group m-1">
+                <label class="p-1" for="title-input">Title</label>
+                <textarea class="form-control p-1" id="title-input">{{ post.title }}</textarea>
+                <label class="p-1" for="content-input">Content</label>
+                <textarea class="form-control p-1" id="content-input">{{ post.contents }}</textarea>
+            </div>
+            <button type="submit" class="btn btn-primary m-1" id="update-button">Update</button>
+            <button type="button" class="btn btn-primary m-1" id="delete-button">Delete</button>
+        </form>
+    </div>
+</div>
+<script src="/js/blogUpdate.js"></script>

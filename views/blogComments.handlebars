@@ -1,0 +1,36 @@
+<div class="container" id="blog-posts">
+    <div class="row">
+        <div class="card col-12 col-sm-12 m-2" data-id="{{ post.id }}">
+            <div class="card-header">
+                <span class="float-start"> {{ post.title }} </span>
+                <span class="float-end"> Posted by {{ post.user.username }} on {{ post.dateStringForPost }}
+                </span>
+            </div>
+            <div class="card-body">
+                <p class="card-text">{{post.contents}}</p>
+            </div>
+        </div>
+    </div>
+    {{#each this.post.comments }}
+    <div class="row">
+        <div class="card col-12 col-sm-12 m-2" data-id="{{ id }}">
+            <div class="card-body">
+                <p class="card-text">{{ comment }}</p>
+                <p class="card-text">-- {{ user.username }}, {{ dateStringForComment }}</p>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+    {{#if loggedIn}}
+    <div class="row">
+        <form id="new-comment-form">
+            <div class="form-group m-1">
+                <label for="comment-input">Comment</label>
+                <textarea class="form-control" id="comment-input" placeholder="Comment" rows="5"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary m-1">Submit</button>
+        </form>
+        <script src="/js/blogComments.js"></script>
+    </div>
+    {{/if}}
+</div>
