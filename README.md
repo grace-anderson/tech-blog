@@ -12,7 +12,7 @@
   - [Contribution Guidelines](#contribution-guidelines)
   - [Test Instructions](#test-instructions)
   - [Questions](#questions)
-  - [Screenshots](#screenshots)
+  - [Mockups](#mockups)
 
 
 ## Project Description 
@@ -44,7 +44,7 @@ The Tech Blog code is available on [GitHub](https://github.com/grace-anderson/te
 
 ## Use
 Try out the app on [Heroku](https://frozen-caverns-29448.herokuapp.com/).   
-A gif illustrating these steps can be found under [Screenshots](#screenshots)
+Gifs illustrating these steps can be found under [Mockups](#mockups)
 1. Click log in (top right) to create a Tech Blog user account
 2. Enter a name, email and password, then click Sign Up
 3. You will now see your Dashboard. This is where you can add posts. All posts you create will be listed here.
