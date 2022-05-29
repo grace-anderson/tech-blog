@@ -25,6 +25,7 @@
       on
       {{format_date comment.date_created}}
     </p>
+     {{!-- {{#if logged_in}} --}}
     <div class="display-flex justify-space-between align-center">
       <div>
         <a class="bold" href="/comments/{{comment.id}}/edit">Edit Comment</a>
@@ -33,6 +34,7 @@
         <a class="bold" href="/blogs/{{ ../blogPost.id }}/comments/delete/{{ comment.id }}">Delete Comment</a>
       </div>
     </div>
+    {{!-- {{/if}}  --}}
   </div>
 {{/each}}
 </section>
