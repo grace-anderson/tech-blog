@@ -43,21 +43,17 @@ The Tech Blog code is available on [GitHub](https://github.com/grace-anderson/te
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/) 
 
 ## Use
-Try out the app on [Heroku](https://frozen-caverns-29448.herokuapp.com/).   
-<<<<<<< HEAD
-Gifs illustrating these steps can be found under [Mockups](#mockups)
-=======
-A gif illustrating these steps can be found under [Mockups](#mockups)
->>>>>>> readme
+Try out the app on [Heroku](https://frozen-caverns-29448.herokuapp.com/).  Gifs illustrating these steps can be found under [Mockups](#mockups)
 1. Click log in (top right) to create a Tech Blog user account
 2. Enter a name, email and password, then click Sign Up
+   * **Note that your password must be a minimum of 8 characters in length**
 3. You will now see your Dashboard. This is where you can add posts. All posts you create will be listed here.
 4. To create a new blog post, enter a title and post content. Then click publish.
 5. Go to Home. You will see your post at the bottom of the list of posts
 6. You may edit the posts you create by clicking on Edit Post.
 7. To make a comment click on any post. Enter your comment, then click Add a comment.
 8. You can edit or delete the comments you create. 
-9. To log out, click on Logout (top right)
+9.  To log out, click on Logout (top right)
 
 ## Installation
 * You need a [GitHub](https://github.com/) account to access the code

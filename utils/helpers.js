@@ -11,8 +11,6 @@ module.exports = {
       current_datetime.getFullYear();
     console.log(formatted_date);
 
-    // return date.toLocaleDateString();
-
     return formatted_date;
   },
 

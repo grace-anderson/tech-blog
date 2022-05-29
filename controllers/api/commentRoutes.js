@@ -26,7 +26,7 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-//updated comment
+//updated (edited) comment
 router.post('/:id', withAuth, async (req, res) => {
 
   try {
@@ -59,7 +59,7 @@ router.delete('/:id', withAuth, async (req, res) => {
 
     res.status(200).json(commentData);
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json(commentData);
   }
 });
 
