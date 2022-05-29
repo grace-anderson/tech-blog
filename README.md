@@ -12,7 +12,7 @@
   - [Contribution Guidelines](#contribution-guidelines)
   - [Test Instructions](#test-instructions)
   - [Questions](#questions)
-  - [Screenshots](#screenshots)
+  - [Mockups](#mockups)
 
 
 ## Project Description 
@@ -44,7 +44,7 @@ The Tech Blog code is available on [GitHub](https://github.com/grace-anderson/te
 
 ## Use
 Try out the app on [Heroku](https://frozen-caverns-29448.herokuapp.com/).   
-A gif illustrating these steps can be found under [Screenshots](#screenshots)
+A gif illustrating these steps can be found under [Mockups](#mockups)
 1. Click log in (top right) to create a Tech Blog user account
 2. Enter a name, email and password, then click Sign Up
 3. You will now see your Dashboard. This is where you can add posts. All posts you create will be listed here.
@@ -60,7 +60,7 @@ A gif illustrating these steps can be found under [Screenshots](#screenshots)
 * Install the Tech Blog by forking the [repository](https://github.com/grace-anderson/tech-blog) and then cloning the fork locally
 * More information
   * [How to fork a repo](https://docs.github.com/en/get-started/quickstart/fork-a-repo)
-  * [GitHub getting started](https://docs.github.com/) 
+  * [GitHub getting started](https://docs.github.com/en/get-started) 
 
 ## License
 License covering this application: [MIT](https://opensource.org/licenses/MIT)
@@ -128,5 +128,11 @@ If you have questions about the **Tech Blog**, feel free to [email](mailto:helen
 See more of Helen's work on [GitHub](https://github.com/grace-anderson)
 
 ## Mockups
-1. Login
-2.  
+1. Creating a user and logging in
+    >![Creating a user and logging in to the Tech Blog](./utils/gif/login.gif)  
+2. Create a blog post
+    >![Creating a blog post](./utils/gif/createpost.gif)  
+3. Edit a post
+    >![Editing a blog post](./utils/gif/editpost.gif)  
+4. Add and delete a comment
+    >![Add and delete a comment](./utils/gif/adddeletecomment.gif)  
