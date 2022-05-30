@@ -16,7 +16,7 @@
 
 
 ## Project Description 
-The **Tech Blog** is a CMS-style blog site, where developers can publish their own blog posts and comment on other developers’ posts. While developers spend plenty of time creating new applications and debugging existing codebases, most developers also spend some of their time reading and writing about technical concepts, recent advancements, and new technologies. Developers can use the Tech Blog to publish their own writing, while monitoring and commenting on other developers' posts.
+The **Tech Blog** is a CMS-style blog site, where developers can publish their own posts and comment on other developers’ posts. While developers spend plenty of time creating new applications and debugging existing codebases, most developers also spend some of their time reading and writing about technical concepts, recent advancements, and new technologies. Developers can use the Tech Blog to publish their own writing, while monitoring and commenting on other developers' posts.
 
 The Tech Blog functions simiar to well-known CMS (content management systems), such as Wordpress. The Tech Blog app follows the MVC paradigm in its architectural structure, uses Handlebars.js as its templating language, Sequelize as its ORM, the express-session npm package for authentication, and bcrypt for securing user credentials.
 
@@ -43,17 +43,18 @@ The Tech Blog code is available on [GitHub](https://github.com/grace-anderson/te
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/) 
 
 ## Use
-Try out the app on [Heroku](https://frozen-caverns-29448.herokuapp.com/).  Gifs illustrating these steps can be found under [Mockups](#mockups)
-1. Click log in (top right) to create a Tech Blog user account
-2. Enter a name, email and password, then click Sign Up
+Try out the app on [Heroku](https://frozen-caverns-29448.herokuapp.com/).  
+
+Gifs illustrating the following steps can be found under [Mockups](#mockups)
+1. Click **Login** (top left) to create a Tech Blog user account
+2. Enter a username, email and password, then click Sign Up
    * **Note that your password must be a minimum of 8 characters in length**
-3. You will now see your Dashboard. This is where you can add posts. All posts you create will be listed here.
-4. To create a new blog post, enter a title and post content. Then click publish.
-5. Go to Home. You will see your post at the bottom of the list of posts
-6. You may edit the posts you create by clicking on Edit Post.
-7. To make a comment click on any post. Enter your comment, then click Add a comment.
-8. You can edit or delete the comments you create. 
-9.  To log out, click on Logout (top right)
+3. You will now see **Your Dashboard**. This is where you can add posts. All posts you create will be listed here.
+4. To create a new blog post, click **Create a new post** then enter a title and post content. Then click publish.
+5. Go to **Home**. You will see your post at the bottom of the list of posts. View the full text of any post by clicking on that post.
+6. You may edit the posts you create by returnting to **Your Dashboard** and clicking on the post you wish to edit. You may also delete your post here
+7. To make a comment, go to **Home** and click on any post. Enter your comment, then click **Add your comment**.
+8.  To log out, click on Logout (top left)
 
 ## Installation
 * You need a [GitHub](https://github.com/) account to access the code
@@ -67,7 +68,7 @@ License covering this application: [MIT](https://opensource.org/licenses/MIT)
 
 ## Contribution Guidelines
 * Contributions are welcome.
-* Support resolving a number of issues would be very much appreciated: [Tech Blog Issues](https://github.com/grace-anderson/tech-blog/issues)
+* Support resolving issues is very much appreciated: [Tech Blog Issues](https://github.com/grace-anderson/tech-blog/issues)
 * You may contribute to the **Tech Blog** project following the Contribution Guidelines below.
 * The code is located in the [Tech Blog Code Repository](https://github.com/grace-anderson/tech-blog) 
 * To contribute, open a new issue describing your proposed enhancement or fix.
@@ -129,10 +130,10 @@ See more of Helen's work on [GitHub](https://github.com/grace-anderson)
 
 ## Mockups
 1. Creating a user and logging in
-    >![Creating a user and logging in to the Tech Blog](./utils/gif/login.gif)  
+    >![Signing up and logging in to the Tech Blog](./utils/gifs/login.gif)  
 2. Create a blog post
-    >![Creating a blog post](./utils/gif/createpost.gif)  
+    >![Creating a blog post](./utils/gifs/createpost.gif)  
 3. Edit a post
-    >![Editing a blog post](./utils/gif/editpost.gif)  
+    >![Editing a blog post](./utils/gifs/editpost.gif)  
 4. Add and delete a comment
-    >![Add and delete a comment](./utils/gif/adddeletecomment.gif)  
+    >![Add a comment](./utils/gifs/addcomment.gif)  
