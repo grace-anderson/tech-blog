@@ -3,7 +3,7 @@ const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 const isPostCreator = require('../utils/isPostCreator');
 
-// Display the homepage
+// Display homepage
 router.get('/', async (req, res) => {
   try {
     const postData = await Post.findAll({
@@ -92,7 +92,7 @@ router.get('/dashboard', async (req, res) => {
 
 // Route to create a new blog post
 router.get('/new-blog-post', withAuth, async (req, res) => {
-  res.render('newBlogPost', {
+  res.render('newPost', {
     pageDescription: 'Your Tech Blog Dashboard',
     loggedIn: req.session.loggedIn
   });

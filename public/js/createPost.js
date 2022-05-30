@@ -18,5 +18,5 @@ const createPost = async (event) => {
 };
 
 document
-  .querySelector('#new-blog-post-form')
+  .querySelector('#new-post-form')
   .addEventListener('submit', createPost);
