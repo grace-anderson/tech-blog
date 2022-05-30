@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-// CREATE new user
+// Create a user
 router.post('/', async (req, res) => {
   try {
     const dbUserData = await User.create({
@@ -10,7 +10,7 @@ router.post('/', async (req, res) => {
     });
     req.session.save(() => {
       req.session.loggedIn = true;
-      // Save the user ID in the session so the logged in user is known
+      // user_id saved in session, so app knows who is loggedin user
       req.session.loggedInId = dbUserData.dataValues.id;
 
       res.status(200).json(dbUserData);
@@ -21,7 +21,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Login
+// User log in
 router.post('/login', async (req, res) => {
   try {
     const dbUserData = await User.findOne({
@@ -33,7 +33,7 @@ router.post('/login', async (req, res) => {
     if (!dbUserData) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password. Please try again!' });
+        .json({ message: 'Incorrect user credentials. Please try again' });
       return;
     }
 
@@ -42,18 +42,17 @@ router.post('/login', async (req, res) => {
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password. Please try again!' });
+        .json({ message: 'Incorrect user credentials. Please try again' });
       return;
     }
 
     req.session.save(() => {
       req.session.loggedIn = true;
-      // Save the user ID in the session so the logged in user is known
       req.session.loggedInId = dbUserData.dataValues.id;
 
       res
         .status(200)
-        .json({ user: dbUserData, message: 'You are now logged in!' });
+        .json({ user: dbUserData, message: 'You are now logged in' });
     });
   } catch (err) {
     console.log(err);
@@ -61,7 +60,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// Logout
+// User log out
 router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {

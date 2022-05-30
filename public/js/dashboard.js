@@ -1,13 +1,12 @@
 var blogPosts = document.querySelectorAll('.card');
 
-// Listen for clicks on blog post
+// Listen for clicks on post card
 blogPosts.forEach((item) =>
   item.addEventListener('click', function (event) {
-    // Check if the clicked element was a card
     if (event.currentTarget.classList.contains('card')) {
-      // Get the ID of the clicked blog
+      // get post id from clicked card
       var clickedId = event.currentTarget.dataset.id;
-      // Go to the page for updating the blog
+      // open post comments for post id
       document.location.replace('/blog-update/' + clickedId);
     }
   })

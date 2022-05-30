@@ -1,7 +1,7 @@
 const updatePostFormHandler = async (event) => {
   event.preventDefault();
 
-  // Get the blog post ID from the end of the URL
+  // Get post id from end of the URL
   const postId = window.location.href.split('/').pop();
 
   const title = document.querySelector('#title-input').value;
@@ -27,7 +27,6 @@ document
 const deletePostHandler = async (event) => {
   event.preventDefault();
 
-  // Get the blog post ID from the end of the URL
   const postId = window.location.href.split('/').pop();
 
   const response = await fetch('/api/blog/' + postId, {

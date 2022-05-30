@@ -1,36 +1,48 @@
-<div class="container" id="blog-posts">
-    <div class="row">
-        <div class="card col-12 col-sm-12 m-2" data-id="{{ post.id }}">
-            <div class="card-header">
-                <span class="float-start"> {{ post.title }} </span>
-                <span class="float-end"> Posted by {{ post.user.username }} on {{ post.dateStringForPost }}
-                </span>
-            </div>
-            <div class="card-body">
-                <p class="card-text">{{post.contents}}</p>
-            </div>
+<div class='container' id='blog-posts'>
+  <div class='row mt-3 ms-5 me-5 p-1'>
+    <div class='card custom-card col-12 col-sm-12 m-2' data-id='{{post.id}}'>
+      <div class='card-header text-bg-secondary'>
+        <span class='h3 float-start'> {{post.title}} </span>
+        <span class='mt-2 float-end'>
+          Posted by
+          {{post.user.username}}
+          on
+          {{post.dateStringForPost}}
+        </span>
+      </div>
+      <div class='card-body'>
+        <p class='card-text white-space-wrap'>{{post.contents}}</p>
+      </div>
+    </div>
+  </div>
+  {{#each this.post.comments}}
+    <div class='row ms-5 me-5'>
+      <div class='card col-12 col-sm-12 m-2' data-id='{{id}}'>
+        <div class='card-body'>
+          <p class='card-text'>{{comment}}</p>
+          <p class='card-text small-text'>Comment added by
+            {{user.username}}
+            on
+            {{dateStringForComment}}</p>
         </div>
+      </div>
     </div>
-    {{#each this.post.comments }}
-    <div class="row">
-        <div class="card col-12 col-sm-12 m-2" data-id="{{ id }}">
-            <div class="card-body">
-                <p class="card-text">{{ comment }}</p>
-                <p class="card-text">-- {{ user.username }}, {{ dateStringForComment }}</p>
-            </div>
+  {{/each}}
+  {{#if loggedIn}}
+    <div class='row ms-5 me-5'>
+      <form id='new-comment-form'>
+        <div class='form-group m-1'>
+          <label for='comment-input'></label>
+          <textarea
+            class='form-control'
+            id='comment-input'
+            placeholder='Add your comment here (max length 255 characters)'
+            rows='5'
+          ></textarea>
         </div>
+        <button type='submit' class='btn btn-lg btn btn-dark mt-3 m-1'>Submit</button>
+      </form>
+      <script src='/js/blogComments.js'></script>
     </div>
-    {{/each}}
-    {{#if loggedIn}}
-    <div class="row">
-        <form id="new-comment-form">
-            <div class="form-group m-1">
-                <label for="comment-input">Comment</label>
-                <textarea class="form-control" id="comment-input" placeholder="Comment" rows="5"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary m-1">Submit</button>
-        </form>
-        <script src="/js/blogComments.js"></script>
-    </div>
-    {{/if}}
+  {{/if}}
 </div>

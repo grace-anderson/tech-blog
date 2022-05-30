@@ -2,7 +2,7 @@ const createNewCommentFormHandler = async (event) => {
   event.preventDefault();
 
   const comment = document.querySelector('#comment-input').value;
-  // Get the blog post ID from the end of the URL
+  // Get the post id from end of the URL
   const postId = window.location.href.split('/').pop();
   const response = await fetch('/api/blog/new-comment', {
     method: 'POST',
@@ -14,7 +14,7 @@ const createNewCommentFormHandler = async (event) => {
   });
 
   if (response.ok) {
-    // Reload the page to show the new comment
+    //reload page with new comment
     document.location.replace('/blog-comments/' + postId);
   } else {
     alert('Failed to create blog post');

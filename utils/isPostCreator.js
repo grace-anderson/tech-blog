@@ -1,6 +1,6 @@
 const { User, Post } = require('../models');
 
-// Check that the user is the creator of the post
+// Check user is the creator of the post
 const isPostCreator = async (req, res, next) => {
   try {
     const postData = await Post.findOne({
@@ -13,7 +13,6 @@ const isPostCreator = async (req, res, next) => {
     });
     const post = postData.get({ plain: true });
 
-    // check user is post creator
     if (req.session.loggedInId !== post.user.id) {
       res.redirect('/');
       return;

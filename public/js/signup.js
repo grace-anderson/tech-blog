@@ -4,7 +4,6 @@ const signupFormHandler = async (event) => {
   const username = document.querySelector('#username-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
 
-  // Check that the password is at least 8 characters
   if (password.length < 8) {
     alert('Password must be 8 characters or more');
   } else if (username && password) {

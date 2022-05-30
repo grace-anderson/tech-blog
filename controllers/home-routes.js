@@ -3,7 +3,7 @@ const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 const isPostCreator = require('../utils/isPostCreator');
 
-// GET the homepage
+// Display the homepage
 router.get('/', async (req, res) => {
   try {
     const postData = await Post.findAll({
@@ -53,9 +53,9 @@ router.get('/signup', (req, res) => {
   });
 });
 
-// Route for the user's dashboard
+// Display user's dashboard
 router.get('/dashboard', async (req, res) => {
-  // Redirect to login if the user is not logged in
+  // If user not logged in, redirect to login page
   if (!req.session.loggedIn) {
     res.redirect('/login');
     return;
@@ -74,7 +74,7 @@ router.get('/dashboard', async (req, res) => {
       );
     }
 
-    // Convert the date to a string to display in the template
+    // format date
     for (var idx = 0; idx < posts.length; idx++) {
       posts[idx].dateStringForPost = posts[idx].createdAt.toLocaleDateString();
     }
@@ -90,7 +90,7 @@ router.get('/dashboard', async (req, res) => {
   }
 });
 
-// Route for the form to create a new blog post
+// Route to create a new blog post
 router.get('/new-blog-post', withAuth, async (req, res) => {
   res.render('newBlogPost', {
     pageDescription: 'Your Tech Blog Dashboard',
@@ -98,7 +98,6 @@ router.get('/new-blog-post', withAuth, async (req, res) => {
   });
 });
 
-// Route for the form to create a new blog post
 router.get('/blog-comments/:id', async (req, res) => {
   try {
     const postData = await Post.findOne({
@@ -118,7 +117,7 @@ router.get('/blog-comments/:id', async (req, res) => {
     const post = postData.get({ plain: true });
     post.dateStringForPost = post.createdAt.toLocaleDateString();
 
-    // Convert each comment created date to a date string
+    // format date
     for (var idx = 0; idx < post.comments.length; idx++) {
       post.comments[idx].dateStringForComment = post.comments[idx].createdAt.toLocaleDateString();
     }
@@ -134,7 +133,7 @@ router.get('/blog-comments/:id', async (req, res) => {
   }
 });
 
-// Route for editing an existing blog post
+// Edit post
 router.get('/blog-update/:id', withAuth, isPostCreator, async (req, res) => {
   try {
     const postData = await Post.findOne({
