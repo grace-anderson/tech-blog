@@ -82,7 +82,7 @@ router.get('/dashboard', async (req, res) => {
     res.render('dashboard', {
       posts,
       loggedIn: req.session.loggedIn,
-      pageDescription: 'Your Tech Blog Dashboard'
+      pageDescription: 'Tech Blog Dashboard'
     });
   } catch (err) {
     console.log(err);
@@ -93,7 +93,7 @@ router.get('/dashboard', async (req, res) => {
 // Route to create a new blog post
 router.get('/new-blog-post', withAuth, async (req, res) => {
   res.render('createPost', {
-    pageDescription: 'Your Tech Blog Dashboard',
+    pageDescription: 'Tech Blog Dashboard',
     loggedIn: req.session.loggedIn
   });
 });
@@ -146,7 +146,7 @@ router.get('/blog-update/:id', withAuth, creator, async (req, res) => {
     res.render('updatePost', {
       post,
       loggedIn: req.session.loggedIn,
-      pageDescription: 'Your Tech Blog Dashboard'
+      pageDescription: 'Tech Blog Dashboard'
     });
   } catch (err) {
     console.log(err);
