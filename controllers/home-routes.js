@@ -92,7 +92,7 @@ router.get('/dashboard', async (req, res) => {
 
 // Route to create a new blog post
 router.get('/new-blog-post', withAuth, async (req, res) => {
-  res.render('newPost', {
+  res.render('createPost', {
     pageDescription: 'Your Tech Blog Dashboard',
     loggedIn: req.session.loggedIn
   });
@@ -122,7 +122,7 @@ router.get('/blog-comments/:id', async (req, res) => {
       post.comments[i].dateStringForComment = post.comments[i].createdAt.toLocaleDateString();
     }
 
-    res.render('blogComments', {
+    res.render('commentPost', {
       post,
       loggedIn: req.session.loggedIn,
       pageDescription: 'The Tech Blog'
