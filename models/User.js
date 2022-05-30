@@ -36,8 +36,8 @@ User.init(
         return newUserData;
       },
       async beforeBulkCreate(newUserData) {
-        for (var idx = 0; idx < newUserData.length; idx++) {
-          newUserData[idx].dataValues.password = await bcrypt.hash(newUserData[idx].dataValues.password, 10);
+        for (let i = 0; i < newUserData.length; i++) {
+          newUserData[i].dataValues.password = await bcrypt.hash(newUserData[i].dataValues.password, 10);
         }
         return newUserData;
       },

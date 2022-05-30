@@ -16,8 +16,8 @@ router.get('/', async (req, res) => {
       post.get({ plain: true })
     );
 
-    for (var idx = 0; idx < posts.length; idx++) {
-      posts[idx].dateStringForPost = posts[idx].createdAt.toLocaleDateString();
+    for (let i = 0; i < posts.length; i++) {
+      posts[i].dateStringForPost = posts[i].createdAt.toLocaleDateString();
     }
     res.render('homepage', {
       posts,
@@ -75,8 +75,8 @@ router.get('/dashboard', async (req, res) => {
     }
 
     // format date
-    for (var idx = 0; idx < posts.length; idx++) {
-      posts[idx].dateStringForPost = posts[idx].createdAt.toLocaleDateString();
+    for (let i = 0; i < posts.length; i++) {
+      posts[i].dateStringForPost = posts[i].createdAt.toLocaleDateString();
     }
 
     res.render('dashboard', {
@@ -118,8 +118,8 @@ router.get('/blog-comments/:id', async (req, res) => {
     post.dateStringForPost = post.createdAt.toLocaleDateString();
 
     // format date
-    for (var idx = 0; idx < post.comments.length; idx++) {
-      post.comments[idx].dateStringForComment = post.comments[idx].createdAt.toLocaleDateString();
+    for (let i = 0; i < post.comments.length; i++) {
+      post.comments[i].dateStringForComment = post.comments[i].createdAt.toLocaleDateString();
     }
 
     res.render('blogComments', {
