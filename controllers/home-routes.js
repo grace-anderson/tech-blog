@@ -143,7 +143,7 @@ router.get('/blog-update/:id', withAuth, isPostCreator, async (req, res) => {
     });
     const post = postData.get({ plain: true });
 
-    res.render('blogUpdate', {
+    res.render('updatePost', {
       post,
       loggedIn: req.session.loggedIn,
       pageDescription: 'Your Tech Blog Dashboard'
