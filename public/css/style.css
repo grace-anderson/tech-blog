@@ -1,4 +1,9 @@
-/* pointing cursor, indicating clickable content */
+.instruction {
+    color: #808080;
+}
+
+
 .pointerCursor {
     cursor: pointer;
 }
+    
