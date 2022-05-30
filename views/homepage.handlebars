@@ -1,21 +1,25 @@
 <div class='container'>
+  <div class="mt-5">
   {{#each this.posts}}
-    <div class='row'>
-      <div class='card col-12 col-sm-12 m-2 pointerCursor' data-id='{{id}}'>
-        <div class='card-header'>
+    <div class='row p-1'>
+      <div class='card custom-card pointerCursor' data-id='{{id}}'>
+        <div class='card-header text-bg-secondary'>
           <span class='float-start'> {{title}} </span>
           <span class='float-end'>
-            Posted by
-            {{user.username}}
-            on
+            Published on
             {{dateStringForPost}}
+            by
+            {{user.username}}
           </span>
         </div>
         <div class='card-body'>
-          <p class='card-text'>{{contents}}</p>
+          <p
+            class='card-text white-space-wrap display-text-height'
+          >{{contents}}</p>
         </div>
       </div>
     </div>
   {{/each}}
+  </div>
 </div>
 <script src='/js/homePage.js'></script>

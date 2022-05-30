@@ -2,6 +2,18 @@
     color: #808080;
 }
 
+.custom-card {
+   padding: 0;
+}
+
+.white-space-wrap {
+    white-space: pre-wrap;
+  }
+
+.display-text-height {
+    max-height: 3rem;
+    overflow: hidden;
+}
 
 .pointerCursor {
     cursor: pointer;

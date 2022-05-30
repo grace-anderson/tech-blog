@@ -13,7 +13,7 @@ const isPostCreator = async (req, res, next) => {
     });
     const post = postData.get({ plain: true });
 
-    // Make sure the logged in user was the creator of the blog post
+    // check user is post creator
     if (req.session.loggedInId !== post.user.id) {
       res.redirect('/');
       return;
