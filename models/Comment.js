@@ -14,6 +14,9 @@ Comment.init(
     comment: {
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        len: [1],
+      },
     },
     creator_id: {
       type: DataTypes.INTEGER,

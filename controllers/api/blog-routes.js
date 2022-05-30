@@ -25,6 +25,12 @@ router.post('/new-comment', withAuth, async (req, res) => {
       comment: req.body.comment,
       creator_id: req.session.loggedInId,
     });
+
+    if (!commentData.comment) {
+      alert('Failed to add comment. Remember to enter your comment.');
+      return;
+    }
+
     res.status(200).json(commentData);
   } catch (err) {
     res.status(400).json(err);
