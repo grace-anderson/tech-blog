@@ -15,7 +15,7 @@
         />
       </div>
       <div class='col-auto'>
-        <span id='passwordHelpInline' class='form-text'>
+        <span id='usernameHelpInline' class='form-text'>
           Your username will appear on your blog posts and comments
         </span>
       </div>
@@ -39,23 +39,13 @@
         </span>
       </div>
     </div>
-    {{! 
-    <div class='form-floating m-1'>
-      <input
-        type='text'
-        class='form-control'
-        id='username-signup'
-        placeholder='Username'
-      />
-      <label for='floatingInput'>Username</label>
-    </div> }}
-    {{! <div class="form-floating m-1">
-            <input type="password" class="form-control" id="password-signup" placeholder="Password">
-            <label for="floatingPassword">Password</label>
-        </div> }}
     <div class='row m-1 align-items-center'>
-      <div class='col-4'>
+      <div class='col-auto'>
         <button class='btn btn-lg btn btn-dark mt-2' type='submit'>Sign Up</button>
+      </div>
+      <div class='col-auto'>
+        <h5 class='mt-2 pt-2'>Already signed up? Go to
+          <a href='/login'>log in</a></h5>
       </div>
     </div>
   </form>

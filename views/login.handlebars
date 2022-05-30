@@ -1,16 +1,55 @@
-<div class="form-signin ms-5 mt-5">
-    <form id="login-form">
-        <h2 class="mb-3">Sign in with your username and password</h2>
-        <div class="form-floating m-1">
-            <input type="text" class="form-control" id="username-login" placeholder="Username">
-            <label for="floatingInput">Username</label>
-        </div>
-        <div class="form-floating m-1">
-            <input type="password" class="form-control" id="password-login" placeholder="Password">
-            <label for="floatingPassword">Password</label>
-        </div>
-        <button class="w-100 btn btn-lg btn-primary m-1" type="submit">Sign in</button>
-        <a class="m-1" href="/signup">Sign Up</a>
-    </form>
+<div class='form-signin p-5'>
+  <form id='login-form'>
+    <h3 class='ms-3 mb-3'>Sign in with your username and password</h3>
+
+    <div class='row m-1 align-items-center'>
+      <div class='col-auto'>
+        <label for='username' class='col-form-label'>Username</label>
+      </div>
+      <div class='col-auto'>
+        <input
+          type='text'
+          class='form-control'
+          id='username-login'
+          aria-describedby='usernameHelpInline'
+        />
+      </div>
+      <div class='col-auto'>
+        <span id='usernameHelpInline' class='form-text'>
+          Enter your username
+        </span>
+      </div>
+    </div>
+
+    <div class='row m-1 align-items-center'>
+      <div class='col-auto'>
+        <label for='password' class='col-form-label'>Password</label>
+      </div>
+      <div class='col-auto ms-1'>
+        <input
+          type='password'
+          class='form-control'
+          id='password-login'
+          aria-describedby='passwordHelpInline'
+        />
+      </div>
+      <div class='col-auto'>
+        <span id='passwordHelpInline' class='form-text'>
+          Enter your password
+        </span>
+      </div>
+    </div>
+
+    <div class='row m-1 align-items-center'>
+      <div class='col-auto'>
+        <button class='btn btn-lg btn btn-dark mt-2' type='submit'>Sign In</button>
+      </div>
+      <div class='col-auto'>
+        <h5 class='mt-2 pt-2'>Can't sign in? Go to
+          <a href='/signup'>sign up</a></h5>
+      </div>
+    </div>
+  </form>
 </div>
-<script src="/js/login.js"></script>
+
+<script src='/js/login.js'></script>
