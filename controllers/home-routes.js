@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 const creator = require('../utils/creator');
+const { format_date } = require('../utils/helpers');
 
 // Display homepage
 router.get('/', async (req, res) => {
@@ -77,6 +78,7 @@ router.get('/dashboard', async (req, res) => {
     // format date
     for (let i = 0; i < posts.length; i++) {
       posts[i].postDate = posts[i].createdAt.toLocaleDateString();
+      format_date(posts[i].postDate);
     }
 
     res.render('dashboard', {
@@ -120,6 +122,7 @@ router.get('/blog-comments/:id', async (req, res) => {
     // format date
     for (let i = 0; i < post.comments.length; i++) {
       post.comments[i].commentDate = post.comments[i].createdAt.toLocaleDateString();
+      format_date(post.comments[i].commentDate);
     }
 
     res.render('commentPost', {

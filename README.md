@@ -20,7 +20,7 @@ The **Tech Blog** is a CMS-style blog site, where developers can publish their o
 
 The Tech Blog functions simiar to well-known CMS (content management systems), such as Wordpress. The Tech Blog app follows the MVC paradigm in its architectural structure, uses Handlebars.js as its templating language, Sequelize as its ORM, the express-session npm package for authentication, and bcrypt for securing user credentials.
 
-Any developer can view and try out the Tech Blog on [Heroku](https://frozen-caverns-29448.herokuapp.com/)
+Any developer can view and try out the Tech Blog on [Heroku](https://enigmatic-bayou-29924.herokuapp.com/)
 
 The Tech Blog code is available on [GitHub](https://github.com/grace-anderson/tech-blog).
 
@@ -43,7 +43,7 @@ The Tech Blog code is available on [GitHub](https://github.com/grace-anderson/te
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/) 
 
 ## Use
-Try out the app on [Heroku](https://frozen-caverns-29448.herokuapp.com/).  
+Try out the app on [Heroku](https://enigmatic-bayou-29924.herokuapp.com/).  
 
 Gifs illustrating the following steps can be found under [Mockups](#mockups)
 1. Click **Login** (top left) to create a Tech Blog user account
