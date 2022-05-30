@@ -1,4 +1,4 @@
-/* Style for showing a pointer for the cursor for clickable blog posts */
-.clickableBlogPost {
+/* pointing cursor, indicating clickable content */
+.pointerCursor {
     cursor: pointer;
 }
