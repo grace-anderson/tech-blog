@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
-const isPostCreator = require('../utils/isPostCreator');
+const creator = require('../utils/creator');
 
 // Display homepage
 router.get('/', async (req, res) => {
@@ -134,7 +134,7 @@ router.get('/blog-comments/:id', async (req, res) => {
 });
 
 // Edit post
-router.get('/blog-update/:id', withAuth, isPostCreator, async (req, res) => {
+router.get('/blog-update/:id', withAuth, creator, async (req, res) => {
   try {
     const postData = await Post.findOne({
       where: {

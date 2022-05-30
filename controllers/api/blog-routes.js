@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Post, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
-const isPostCreator = require('../../utils/isPostCreator');
+const creator = require('../../utils/creator');
 
 // Create a blog post
 router.post('/new', withAuth, async (req, res) => {
@@ -11,6 +11,12 @@ router.post('/new', withAuth, async (req, res) => {
       content: req.body.content,
       creator_id: req.session.loggedInId,
     });
+
+    if (!postData.content) {
+      alert('Failed to add post. Remember to enter your comment.');
+      return;
+    }
+
     res.status(200).json(postData);
   } catch (err) {
     res.status(400).json(err);
@@ -38,7 +44,7 @@ router.post('/new-comment', withAuth, async (req, res) => {
 });
 
 // Update post
-router.put('/:id', withAuth, isPostCreator, async (req, res) => {
+router.put('/:id', withAuth, creator, async (req, res) => {
   try {
     const postData = await Post.update(
       {
@@ -58,7 +64,7 @@ router.put('/:id', withAuth, isPostCreator, async (req, res) => {
 });
 
 // Delete a post
-router.delete('/:id', withAuth, isPostCreator, async (req, res) => {
+router.delete('/:id', withAuth, creator, async (req, res) => {
   try {
     const postData = await Post.destroy({
       where: {
