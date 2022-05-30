@@ -5,11 +5,11 @@ const updatePostFormHandler = async (event) => {
   const postId = window.location.href.split('/').pop();
 
   const title = document.querySelector('#title-input').value;
-  const contents = document.querySelector('#content-input').value;
+  const content = document.querySelector('#content-input').value;
 
   const response = await fetch('/api/blog/' + postId, {
     method: 'PUT',
-    body: JSON.stringify({ title, contents }),
+    body: JSON.stringify({ title, content }),
     headers: { 'Content-Type': 'application/json' },
   });
 

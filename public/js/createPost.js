@@ -2,11 +2,11 @@ const createPost = async (event) => {
   event.preventDefault();
 
   const title = document.querySelector('#title-input').value;
-  const contents = document.querySelector('#content-input').value;
+  const content = document.querySelector('#content-input').value;
 
   const response = await fetch('/api/blog/new', {
     method: 'POST',
-    body: JSON.stringify({ title, contents }),
+    body: JSON.stringify({ title, content }),
     headers: { 'Content-Type': 'application/json' },
   });
 

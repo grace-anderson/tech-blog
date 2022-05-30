@@ -2,12 +2,12 @@ const { Comment } = require('../models');
 
 const commentData = [
   {
-    comment: 'Nice Description',
+    comment: 'Thanks for sharing. Really interesting insights!',
     creator_id: 2,
     blog_post_id: 1
   },
   {
-    comment: 'Thanks for the information',
+    comment: 'Maintenance is difficult during the coding phase when the project size is large.',
     creator_id: 1,
     blog_post_id: 2
   }

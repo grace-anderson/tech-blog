@@ -8,7 +8,7 @@ router.post('/new', withAuth, async (req, res) => {
   try {
     const postData = await Post.create({
       title: req.body.title,
-      contents: req.body.contents,
+      content: req.body.content,
       creator_id: req.session.loggedInId,
     });
     res.status(200).json(postData);
@@ -37,7 +37,7 @@ router.put('/:id', withAuth, isPostCreator, async (req, res) => {
     const postData = await Post.update(
       {
         title: req.body.title,
-        contents: req.body.contents,
+        content: req.body.content,
       },
       {
         where: {
