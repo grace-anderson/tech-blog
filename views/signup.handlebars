@@ -22,10 +22,29 @@
     </div>
 
     <div class='row m-1 align-items-center'>
+      <div class='col-auto me-4'>
+        <label for='email' class='col-form-label'>Email</label>
+      </div>
+      <div class='col-auto ms-2'>
+        <input
+          type='email'
+          class='form-control'
+          id='email-signup'
+          aria-describedby='emailHelpInline'
+        />
+      </div>
       <div class='col-auto'>
+        <span id='emailHelpInline' class='form-text'>
+          Your email
+        </span>
+      </div>
+    </div>
+
+    <div class='row m-1 align-items-center'>
+      <div class='col-auto me-1'>
         <label for='password' class='col-form-label'>Password</label>
       </div>
-      <div class='col-auto ms-1'>
+      <div class='col-auto'>
         <input
           type='password'
           class='form-control'
@@ -35,10 +54,11 @@
       </div>
       <div class='col-auto'>
         <span id='passwordHelpInline' class='form-text'>
-          Must be minimum of 8 characters in length
+          Password must be minimum of 8 characters in length
         </span>
       </div>
     </div>
+
     <div class='row m-1 align-items-center'>
       <div class='col-auto'>
         <button class='btn btn-lg btn btn-dark mt-2' type='submit'>Sign Up</button>

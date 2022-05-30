@@ -19,7 +19,15 @@ User.init(
     username: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true
+      unique: true,
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      validate: {
+        isEmail: true,
+      },
     },
     password: {
       type: DataTypes.STRING,
@@ -37,7 +45,10 @@ User.init(
       },
       async beforeBulkCreate(newUserData) {
         for (let i = 0; i < newUserData.length; i++) {
-          newUserData[i].dataValues.password = await bcrypt.hash(newUserData[i].dataValues.password, 10);
+          newUserData[i].dataValues.password = await bcrypt.hash(
+            newUserData[i].dataValues.password,
+            10
+          );
         }
         return newUserData;
       },

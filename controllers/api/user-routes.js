@@ -6,11 +6,12 @@ router.post('/', async (req, res) => {
   try {
     const dbUserData = await User.create({
       username: req.body.username,
+      email: req.body.email,
       password: req.body.password,
     });
     req.session.save(() => {
       req.session.loggedIn = true;
-      // user_id saved in session, so app knows who is loggedin user
+      // user_id saved in session, so app knows who is logged in user
       req.session.loggedInId = dbUserData.dataValues.id;
 
       res.status(200).json(dbUserData);
@@ -52,7 +53,7 @@ router.post('/login', async (req, res) => {
 
       res
         .status(200)
-        .json({ user: dbUserData, message: 'You are now logged in' });
+        .json({ user: dbUserData, message: 'You\'re now logged in' });
     });
   } catch (err) {
     console.log(err);
