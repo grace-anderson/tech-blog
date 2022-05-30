@@ -14,7 +14,7 @@ const createNewCommentFormHandler = async (event) => {
   });
 
   if (response.ok) {
-    //reload page with new comment
+    //reload page to show new comment
     document.location.replace('/blog-comments/' + postId);
   } else {
     alert('Failed to create blog post');

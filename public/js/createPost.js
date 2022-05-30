@@ -1,4 +1,4 @@
-const createNewPostFormHandler = async (event) => {
+const createPost = async (event) => {
   event.preventDefault();
 
   const title = document.querySelector('#title-input').value;
@@ -19,4 +19,4 @@ const createNewPostFormHandler = async (event) => {
 
 document
   .querySelector('#new-blog-post-form')
-  .addEventListener('submit', createNewPostFormHandler);
+  .addEventListener('submit', createPost);
