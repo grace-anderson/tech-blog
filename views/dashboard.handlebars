@@ -1,21 +1,27 @@
-<div class="container">
-    {{#if loggedIn}}
-    <div class="row">
-        <div class="col-12 col-sm-12 m-2">
-            <button class="w-100 btn btn-lg btn-primary m-1" id="new-post-button"
-                onclick="location.href='/new-blog-post'">+ New Post</button>
+<div class='container'>
+  {{#if loggedIn}}
+    <h2 class='mt-5 mb-3'>Your Posts</h2>
+    <h5>Click on a post to edit or delete it</h5>
+    {{#each this.posts}}
+      <div class='row'>
+        <div class='card col-12 col-sm-12 m-2 pointerCursor' data-id='{{id}}'>
+          <div class='card-body'>
+            <span class='float-start'>{{title}} </span>
+            <span class='float-end'>{{dateStringForPost}}</span>
+          </div>
         </div>
-    </div>
-    {{#each this.posts }}
-    <div class="row">
-        <div class="card col-12 col-sm-12 m-2 pointerCursor" data-id="{{ id }}">
-            <div class="card-body">
-                <span class="float-start">{{ title }} </span>
-                <span class="float-end">{{ dateStringForPost }}</span>
-            </div>
-        </div>
-    </div>
+      </div>
     {{/each}}
-    {{/if}}
+
+    <div class='row mt-3 mb-1 align-items-center'>
+      <div class='col-auto'>
+        <button
+          class='btn btn-lg btn btn-dark'
+          id='new-post-button'
+          onclick="location.href='/new-blog-post'"
+        >Create a new post</button>
+      </div>
+    </div>
+  {{/if}}
 </div>
-<script src="/js/dashboard.js"></script>
+<script src='/js/dashboard.js'></script>
